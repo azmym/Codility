@@ -1,26 +1,25 @@
+package colony;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ColonyWithRecursion {
+public class Colony {
 
     public List<Integer> cellCompete(int[] states, int days) {
-        return Arrays.stream(updateCells(states, days)).boxed().collect(Collectors.toList());
-    }
-
-    public int[] updateCells(int[] states, int days) {
-        if (days == 0) {
-            return states;
-        } else {
+        for (int j = 0; j < days; days--) {
             int[] temp = new int[states.length];
             int prevCell = 0;
             for (int i = 0; i < states.length; i++) {
-                int nextCell = (i == (states.length) - 1) ? 0 : states[i + 1];
+                int nextCell = (i == (states.length) - 1) ? 0 : states[i+1];
                 temp[i] = statesRule(prevCell, nextCell);
                 prevCell = states[i];
             }
-            return updateCells(temp, --days);
+            states = temp;
         }
+
+        return Arrays.stream(states).boxed().collect(Collectors.toList());
+
     }
 
     private int statesRule(int prevCell, int nextCell) {

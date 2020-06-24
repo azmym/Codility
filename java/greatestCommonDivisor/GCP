@@ -1,3 +1,5 @@
+package Greatest
+
 import java.util.Arrays;
 
 public class GCD {
