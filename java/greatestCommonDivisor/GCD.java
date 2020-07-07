@@ -1,4 +1,4 @@
-package Greatest
+package greatestCommonDivisor;
 
 import java.util.Arrays;
 
