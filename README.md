@@ -1,1 +1,1 @@
-## Solve Codility challenges 
+## Solve Problem Solving challenges 
